@@ -1,7 +1,0 @@
-// .eslintrc.json
-{
-  "extends": ["airbnb-base", "prettier"],
-  "rules": {
-    "no-console": "off"
-  }
-}

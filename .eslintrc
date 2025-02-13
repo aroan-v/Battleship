@@ -1,0 +1,17 @@
+{
+  "extends": ["airbnb-base", "prettier"],
+  "plugins": ["jest"],
+  "env": {
+    "jest": true,
+    "es2022": true, // ✅ Allows ES2022 features like class fields
+    // "node": true, // (Optional) If you're using Node.js
+    "browser": true, // Enables global variables like 'document'
+  },
+  "parserOptions": {
+    "ecmaVersion": 2022, // ✅ Set ECMAScript version to 2022+
+  },
+  "rules": {
+    "no-plusplus": "off",
+    "comma-dangle": "off", // Turn off trailing comma rule enforcement.
+  },
+}
