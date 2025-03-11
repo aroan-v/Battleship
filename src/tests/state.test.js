@@ -1,20 +1,20 @@
-import gameStateTracker from "../state/state";
+import PlayerState from "../state/player-state";
+
+let gameStateTracker;
 
 beforeEach(() => {
-  gameStateTracker.lastAttack.attStatus = false;
-  gameStateTracker.lastAttack.shipPresent = false;
+  gameStateTracker = new PlayerState();
 });
 
 test("Reset the state of lastAttack", () => {
-  gameStateTracker.lastAttack.attStatus = true;
-  gameStateTracker.lastAttack.shipPresent = true;
+  gameStateTracker.setEnemyAttacked();
+  gameStateTracker.setEnemyShipAttacked();
 
-  expect(gameStateTracker.lastAttack.attStatus).toBe(true);
+  expect(gameStateTracker.enemyAttacked).toBe(true);
 
   gameStateTracker.resetLastAttack();
 
   expect(
-    gameStateTracker.lastAttack.attStatus &&
-      gameStateTracker.lastAttack.shipPresent
+    gameStateTracker.enemyAttacked && gameStateTracker.enemyShipAttacked
   ).toBe(false);
 });

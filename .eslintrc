@@ -1,17 +1,29 @@
 {
   "extends": ["airbnb-base", "prettier"],
-  "plugins": ["jest"],
+  // Uses Airbnb's JavaScript style guide and Prettier for formatting
+
+  "plugins": ["jest", "eslint-rules"],
+  // "jest" enables Jest-specific linting for tests.
+  // "eslint-rules" is a custom plugin where you'll place your own ESLint rules.
+
   "env": {
-    "jest": true,
-    "es2022": true, // ✅ Allows ES2022 features like class fields
-    // "node": true, // (Optional) If you're using Node.js
-    "browser": true, // Enables global variables like 'document'
+    "jest": true, // Enables Jest globals like 'test', 'expect'.
+    "es2022": true, // Allows modern JavaScript (ES2022+).
+    "browser": true, // Enables browser-specific globals (e.g., 'window', 'document').
   },
+
   "parserOptions": {
-    "ecmaVersion": 2022, // ✅ Set ECMAScript version to 2022+
+    "ecmaVersion": 2022, // Ensures ESLint understands modern JS features.
   },
+
   "rules": {
     "no-plusplus": "off",
-    "comma-dangle": "off", // Turn off trailing comma rule enforcement.
+    // Allows the use of 'i++' and 'i--', which Airbnb normally disallows.
+
+    "comma-dangle": "off",
+    // Disables trailing comma rules, allowing flexibility in object/array formatting.
+
+    "eslint-rules/no-or-in-while": "error",
+    // Custom rule: Prevents using `||` in `while` loops to avoid infinite loops.
   },
 }

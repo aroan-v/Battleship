@@ -1,8 +1,17 @@
 // index.js
 import "./styles.css";
-import { greeting } from "./greeting";
-import gameBoardDOM from "./logic/game-moderator";
+import GameMenuDom from "./dom/game-menu-dom";
 
-console.log(greeting);
+// Body
+const body = document.querySelector("body");
 
-console.log(gameBoardDOM.gameBoard);
+// Main Div Container
+const gameContainer = document.createElement("div");
+gameContainer.classList.add("game-container");
+body.appendChild(gameContainer);
+
+// Game Menu
+const gameMenu = new GameMenuDom(gameContainer);
+
+// Open Menu after appending to DOM
+gameMenu.openPreGameDialog();
