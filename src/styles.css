@@ -189,7 +189,8 @@ body {
 }
 
 dialog {
-  background-blend-mode: soft-light, normal;
+  width: 400px; /* Default for desktop */
+  max-width: 90%; /* Ensures it doesn’t shrink too much on smaller screens */
   border-radius: 1rem;
   overflow: visible;
 
@@ -208,6 +209,7 @@ dialog {
   position: relative;
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 1rem;
   padding: 2rem;
   background: linear-gradient(
@@ -258,7 +260,8 @@ dialog {
   width: 100%;
 }
 
-.game-dialog__button-container button:hover {
+.game-dialog__button-container button:hover,
+.game-dialog button.start-button:hover {
   border: 2.6px solid #ffae02;
 }
 
@@ -323,8 +326,8 @@ dialog h3 {
   transform: translate(-50%);
 }
 
-.game-dialog button.start-button:hover {
-  scale: 1.1;
+.game-dialog button.start-button:active {
+  transform: translate(-50%) scale(0.9);
 }
 
 .pvp-mode__button--selected,
@@ -608,11 +611,15 @@ button {
   gap: 5px;
 }
 
+.ship-buttons__button__visualizer--1 > div,
+.ship-buttons__button__visualizer--2 > div {
+  width: 15px;
+  aspect-ratio: 1/1;
+  border-radius: 10%;
+}
+
 .ship-buttons__button__visualizer--1 > div {
   border: 1px solid var(--player-one);
-  height: 15px;
-  width: 15px;
-  border-radius: 10%;
 }
 
 .ship-buttons__button-1.placed div > div {
@@ -634,9 +641,6 @@ button {
 
 .ship-buttons__button__visualizer--2 > div {
   border: 1px solid var(--player-two);
-  height: 15px;
-  width: 15px;
-  border-radius: 10%;
 }
 
 .ship-buttons__button-2.placed div > div {
@@ -781,5 +785,51 @@ button {
   25%,
   75% {
     border-color: #fff629; /* changed color */
+  }
+}
+
+/* Adjust for larger phones and tablets */
+@media (max-width: 1024px) {
+  dialog {
+    width: 60%; /* More flexible */
+  }
+
+  .container-1,
+  .container-2 {
+    width: 80%;
+    margin-top: 10rem;
+    min-width: 320px;
+  }
+
+  .game-container {
+    gap: 10%;
+  }
+
+  .controls-container-1 button,
+  .controls-container-2 button {
+    font-size: 2rem;
+  }
+
+  .announcer {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  .ship-buttons__button__visualizer--1 > div,
+  .ship-buttons__button__visualizer--2 > div {
+    width: 30px;
+  }
+
+  .controls-container__player-label-1,
+  .controls-container__player-label-2 {
+    font-size: 2.25rem;
+  }
+}
+
+/* Adjust for smaller phones */
+@media (max-width: 480px) {
+  dialog {
+    width: 90%; /* Maximizes space */
   }
 }

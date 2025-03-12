@@ -440,7 +440,7 @@ export default class GameControls {
         break;
 
       case "turn":
-        finalMessage = `It's ${name} turn to attack!`;
+        finalMessage = `It's ${name}'s turn to attack!`;
         cancel = true;
         break;
 
