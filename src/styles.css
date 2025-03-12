@@ -301,8 +301,8 @@ dialog h3 {
 }
 
 .game-dialog button {
-  padding: 1rem;
   border-radius: 1.5rem;
+  border: 2.6px solid #161d4c;
   padding: 0.5rem 1rem;
   background: linear-gradient(
       360deg,
@@ -311,7 +311,6 @@ dialog h3 {
     ),
     #2d7dfe;
   background-blend-mode: multiply, normal;
-  border: 2.6px solid #161d4c;
 }
 
 .game-dialog button.start-button {
